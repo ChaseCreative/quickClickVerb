@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+
+
+.test{
+  margin:auto;
+
+  text-align:center;
+
+
+  font-size: 150%;
+  width: 25%;
+  height:100px;
+
+
+}
+.center {
+  margin:auto;
+  width:50%;
+  margin-top: 40px;
+
+  text-align: center;
+
+
+
+  border: 4px solid white;
+  border-radius: 25px;
+
+  padding: 40px;
+  background-color: red;
+  color:white;
+
+}
+
+.centerDiv {
+  float:clear;
+  margin:auto;
+  width:10%;
+
+  width: 150px;
+  height: 150px;
+  border: 4px solid blue;
+  border-radius: 125px;
+}
+
+
+.imgbox {
+
+  float:clear;
+  margin:auto;
+  width:10%;
+  margin-top: 20px;
+  margin-bottom: 20px
+
+
+  text-align: center;
+  font-size: 150%;
+  width: 150px;
+  height: 150px;
+  border: 4px solid black;
+  border-radius: 125px;
+
+  background-color: yellow;
+  color: black;
+
+  padding: 6px;
+  float:clear;
+
+}
+
+
+
+
+.imgbox2 {
+
+  float: clear;
+  margin:auto;
+  margin-top:90px;
+  text-align: center;
+  background-color: black;
+  color: white;
+
+
+  font-size: 150%;
+  width: 25%;
+  height:200px;
+  border: 4px solid white;
+  border-radius: 25px;
+
+  padding-top: 36px ;
+}
+
+.imgbox3 {
+
+  float: clear;
+  margin:auto;
+  margin-top: 20px;
+  text-align: center;
+  background-color: red;
+  color: white;
+
+
+  font-size: 150%;
+  width: 25%;
+  height:200px;
+  border: 4px solid white;
+  border-radius: 25px;
+
+  padding-top: 36px ;
+}
+
+
+
+.body {
+  background-color: grey;
+}
+
+
+
+</style>
+</head>
+
+
+<body class = "body">
+
+
+<h1 class="center">Quick Tricklation</h1>
+
+
+<p class="test">
+<button class = "imgbox" id = "box1"   onclick="mixUp[ranVTIndx][0]()">Start!</button>
+
+<button class = "imgbox" id = "box2"  onclick="mixUp[ranVTIndx][1]()">Click for Trick!</button>
+</p>
+
+<p class = "imgbox2" id="latin"></p>
+
+<p class = "imgbox3" id="trans"></p>
+
+
+<script>
+
+var mixUp = [[myFunction,myFunction2],[myFunctionP,myFunction2P],[myFunctionImp,myFunction2Imp],[myFunctionImpP,myFunction2ImpP],[myFunctionFut,myFunction2Fut],[myFunctionFutP,myFunction2FutP],[myFunctionPer,myFunction2Per],[myFunctionPerP,myFunction2PerP],[myFunctionPluPer,myFunction2PluPer],[myFunctionPluPerP,myFunction2PluPerP],[myFunctionFutPer,myFunction2FutPer],[myFunctionFutPerP,myFunction2FutPerP]];
+var ranVTIndx = Math.floor(Math.random() * mixUp.length);
+
+var str = [["paro","prepare"],["laboro","work"],["tempto","try"],["supero","conquer"],["nuntio","announce"],["mando","order"],["laudo","praise"],["ambulo","walk"],["do","give"],["amo","love"],["vitupero","scold"],["verbero","beat"],["pulso","strike"],["iuvo","help"],["voco","call"], ["sto","stand"],["cogito","think"]];
+var ranStrIndx = Math.floor(Math.random() * str.length);
+
+var strIng = [["paro","preparing"],["laboro","working"],["tempto","trying"],["supero","conquering"],["nuntio","announcing"],["mando","ordering"],["laudo","praising"],["ambulo","walking"],["do","giving"],["amo","loving"],["vitupero","scolding"],["verbero","beating"],["pulso","striking"],["sto","standing"],["iuvo","helping"],["voco","calling"], ["cogito","thinking"]];
+var ranStrIngIndx = Math.floor(Math.random() * strIng.length);
+
+var strP = [["paro","prepared"],["laboro","worked"],["tempto","tried"],["supero","conquered"],["nuntio","announced"],["mando","ordered"],["laudo","praised"],["ambulo","walked"],["do","given"],["amo","loved"],["vitupero","scolded"],["verbero","beaten"],["pulso","struck"],["iuvo","helped"],["voco","called"]];
+var ranStrPIndx = Math.floor(Math.random() * strP.length);
+
+var strP2 = [["parav","prepared"],["laborav","worked"],["temptav","tried"],["superav","conquered"],["nuntiav","announced"],["mandav","ordered"],["laudav","praised"],["ambulav","walked"],["ded","gave"],["amav","loved"],["vituperav","scolded"],["verberav","beat"],["pulsav","struck"],["iuv","helped"],["vocav","called"],["stet","stood"]];
+var ranStrP2Indx = Math.floor(Math.random() * strP2.length);
+
+var strP3 = [["parav","prepared"],["laborav","worked"],["temptav","tried"],["superav","conquered"],["nuntiav","announced"],["mandav","ordered"],["laudav","praised"],["ambulav","walked"],["ded","given"],["amav","loved"],["vituperav","scolded"],["verberav","beaten"],["pulsav","struck"],["iuv","helped"],["vocav","called"],["stet","stood"]];
+var ranStrP3Indx = Math.floor(Math.random() * strP3.length);
+
+var strPPP = [["parat","prepared"],["laborat","worked"],["temptat","tried"],["superat","conquered"],["nuntiat","announced"],["mandat","ordered"],["laudat","praised"],["ambulat","walked"],["dat","given"],["amat","loved"],["vituperat","scolded"],["verberat","beaten"],["pulsat","struck"],["iut","helped"],["vocat","called"],["stat","stood"]];
+var ranStrPPPIndx = Math.floor(Math.random() * strPPP.length);
+
+var pronoun = ["He","She","It"];
+var pronounIndx = Math.floor(Math.random() * pronoun.length);
+
+var peStr = [["o","I am"],["ās","You are"],["at",pronoun[pronounIndx] + " is"], ["āmus","We are"],["ātis","Ya'll are"],["ant","They are"]];
+var ranPeStrIndx = Math.floor(Math.random() * peStr.length);
+
+var peStrP = [["or","I am"],["āris","You are"],["atur",pronoun[pronounIndx] + " is"], ["āmur","We are"],["āmini","Ya'll are"],["antur","They are"]];
+var ranPeStrPIndx = Math.floor(Math.random() * peStrP.length);
+
+var peStrImp = [["ābam","I was"],["ābās","You were"],["ābat",pronoun[pronounIndx] + " was"], ["ābāmus","We were"],["ābātis","Ya'll were"],["ābant","They were"]];
+var ranPeStrImpIndx = Math.floor(Math.random() * peStrImp.length);
+
+var peStrImpP = [["ābar","I was being"],["ābāris","You were being"],["ābatur",pronoun[pronounIndx] + " was being"], ["ābāmur","We were being"],["ābāmini","Ya'll were being"],["ābantur","They were being"]];
+var ranPeStrImpPIndx = Math.floor(Math.random() * peStrImpP.length);
+
+var peStrFut = [["ābo","I will"],["ābis","You will"],["ābit",pronoun[pronounIndx] + " will"], ["ābimus","We will"],["ābitis","Ya'll will"],["ābunt","They will"]];
+var ranPeStrFutIndx = Math.floor(Math.random() * peStrFut.length);
+
+var peStrFutP = [["ābor","I will be"],["āberis","You will be"],["ābitur",pronoun[pronounIndx] + " will be"], ["ābimur","We will be"],["ābimini","Ya'll will be"],["ābuntur","They will be"]];
+var ranPeStrFutPIndx = Math.floor(Math.random() * peStrFutP.length);
+
+var peStrPer = [["ī","I"],["istī","You"],["it",pronoun[pronounIndx]], ["imus","We"],["istis","Ya'll"],["ērunt","They"]];
+var ranPeStrPerIndx = Math.floor(Math.random() * peStrPer.length);
+
+var peStrPluPer = [["eram","I had"],["eras","You had"],["erat",pronoun[pronounIndx] + " had"], ["eramus","We had"],["eratis","Ya'll had"],["erant","They had"]];
+var ranPeStrPluPerIndx = Math.floor(Math.random() * peStrPluPer.length);
+
+var peStrFutPer = [["ero","I will have"],["eris","You will have"],["erit",pronoun[pronounIndx] + " will have"], ["erimus","We will have"],["eritis","Ya'll will have"],["erint","They will have"]];
+var ranPeStrFutPerIndx = Math.floor(Math.random() * peStrFutPer.length);
+
+var res = strIng[ranStrIngIndx][0].substring(0, strIng[ranStrIngIndx][0].length-1) + peStr[ranPeStrIndx][0];
+var resTrans =  peStr[ranPeStrIndx][1] + " " + strIng[ranStrIngIndx][1];
+
+var resP = strP[ranStrPIndx][0].substring(0, strP[ranStrPIndx][0].length-1) + peStrP[ranPeStrPIndx][0];
+var resTransP =  peStrP[ranPeStrPIndx][1] + " " + strP[ranStrPIndx][1];
+
+//var resImp = strIng[ranStrIngIndx][0].substring(0, strIng[ranStrIndx][0].length-1) + peStrImp[ranPeStrIndx][0];
+var resImp = strIng[ranStrIngIndx][0].substring(0, strIng[ranStrIngIndx][0].length-1) + peStrImp[ranPeStrImpIndx][0];
+var resImpTrans = peStrImp[ranPeStrImpIndx][1] + " " + strIng[ranStrIngIndx][1] ;
+
+var resImpP = str[ranStrPIndx][0].substring(0, strP[ranStrPIndx][0].length-1) + peStrImpP[ranPeStrImpPIndx][0];
+var resImpTransP =  peStrImpP[ranPeStrImpPIndx][1] + " " + strP[ranStrPIndx][1];
+
+var resFut = str[ranStrIndx][0].substring(0, str[ranStrIndx][0].length-1) + peStrFut[ranPeStrFutIndx][0];
+var resFutTrans =  peStrFut[ranPeStrFutIndx][1] + " " + str[ranStrIndx][1];
+
+var resFutP = str[ranStrPIndx][0].substring(0, strP[ranStrPIndx][0].length-1) + peStrFutP[ranPeStrFutPIndx][0];
+var resFutTransP =  peStrFutP[ranPeStrFutPIndx][1] + " " + strP[ranStrPIndx][1];
+
+var resPer = strP2[ranStrP2Indx][0] + peStrPer[ranPeStrPerIndx][0];
+var resPerTrans =  peStrPer[ranPeStrPerIndx][1] + " " + strP2[ranStrP2Indx][1];
+
+var resPluPer = strP3[ranStrP3Indx][0] + peStrPluPer[ranPeStrPluPerIndx][0];
+var resPluPerTrans =  peStrPluPer[ranPeStrPluPerIndx][1] + " " + strP3[ranStrP3Indx][1];
+
+var resFutPer = strP3[ranStrP3Indx][0] + peStrFutPer[ranPeStrFutPerIndx][0];
+var resFutPerTrans =  peStrFutPer[ranPeStrFutPerIndx][1] + " " + strP3[ranStrP3Indx][1];
+
+//Testing starts
+
+var ranPerSubjIndex = Math.floor(Math.random() * 3);
+var perfectSubjectSing = [["us","He "],["a","She "],["um","It "]];
+var perfectSubjectPl = [["ī"," The boys "],["ae"," The girls "],["a"," The things "]];
+
+
+
+//First Declension Latin Perfect PASSIVE Tense
+var perP1S = strPPP[ranStrPPPIndx][0] + perfectSubjectSing[ranPerSubjIndex][0] + " sum";
+var perP2S = strPPP[ranStrPPPIndx][0] + perfectSubjectSing[ranPerSubjIndex][0] + " es";
+var perP3Sm = strPPP[ranStrPPPIndx][0] + perfectSubjectSing[0][0] + " est";
+var perP3Sf = strPPP[ranStrPPPIndx][0] + perfectSubjectSing[1][0] + " est";
+var perP3Sn = strPPP[ranStrPPPIndx][0] + perfectSubjectSing[2][0] + " est";
+
+
+var perP1P = strPPP[ranStrPPPIndx][0] + perfectSubjectPl[ranPerSubjIndex][0] + " sumus";
+var perP2P = strPPP[ranStrPPPIndx][0] + perfectSubjectPl[ranPerSubjIndex][0] + " estis";
+var perP3Pm = strPPP[ranStrPPPIndx][0] + perfectSubjectPl[0][0] + " sunt";
+var perP3Pf = strPPP[ranStrPPPIndx][0] + perfectSubjectPl[1][0] + " sunt";
+var perP3Pn = strPPP[ranStrPPPIndx][0] + perfectSubjectPl[2][0] + " sunt";
+
+
+
+//First Declension English Translation Perfect PASSIVE Tense
+var perP1SEng = "I was " + strPPP[ranStrPPPIndx][1];
+var perP2SEng = "You were " + strPPP[ranStrPPPIndx][1];
+var perP3SEngm = perfectSubjectSing[0][1] + "was " + strPPP[ranStrPPPIndx][1];
+var perP3SEngf = perfectSubjectSing[1][1] + "was " + strPPP[ranStrPPPIndx][1];
+var perP3SEngn = perfectSubjectSing[2][1] + "was " + strPPP[ranStrPPPIndx][1];
+
+var perP1PEng = "We were " + strPPP[ranStrPPPIndx][1];
+var perP2PEng = "Ya'll were " + strPPP[ranStrPPPIndx][1];
+var perP3PEng = "They were " + strPPP[ranStrPPPIndx][1];
+var perP3PEngm = perfectSubjectPl[0][1] + "were " + strPPP[ranStrPPPIndx][1];
+var perP3PEngf = perfectSubjectPl[1][1] + "were " + strPPP[ranStrPPPIndx][1];
+var perP3PEngn = perfectSubjectPl[2][1] + "were " + strPPP[ranStrPPPIndx][1];
+
+
+var perPVerb = [[perP1S,perP1SEng],[perP2S,perP2SEng], [perP3Sm, perP3SEngm], [perP3Sf, perP3SEngf],[perP3Sn, perP3SEngn],[perP1P,perP1PEng],[perP2P,perP2PEng], [perP3Pm, perP3PEngm],[perP3Pf, perP3PEngf],[perP3Pn, perP3PEngn]];
+var ranPerPVerbIndex = Math.floor(Math.random() * perPVerb.length);
+
+//New Tesing Begins
+
+//First Declension Latin PLUPERFECT PASSIVE Tense
+var pluP1S = strPPP[ranStrPPPIndx][0] + perfectSubjectSing[ranPerSubjIndex][0] + " eram";
+var pluP2S = strPPP[ranStrPPPIndx][0] + perfectSubjectSing[ranPerSubjIndex][0] + " eras";
+var pluP3Sm = strPPP[ranStrPPPIndx][0] + perfectSubjectSing[0][0] + " erat";
+var pluP3Sf = strPPP[ranStrPPPIndx][0] + perfectSubjectSing[1][0] + " erat";
+var pluP3Sn = strPPP[ranStrPPPIndx][0] + perfectSubjectSing[2][0] + " erat";
+
+
+var pluP1P = strPPP[ranStrPPPIndx][0] + perfectSubjectPl[ranPerSubjIndex][0] + " eramus";
+var pluP2P = strPPP[ranStrPPPIndx][0] + perfectSubjectPl[ranPerSubjIndex][0] + " eratis";
+var pluP3Pm = strPPP[ranStrPPPIndx][0] + perfectSubjectPl[0][0] + " erant";
+var pluP3Pf = strPPP[ranStrPPPIndx][0] + perfectSubjectPl[1][0] + " erant";
+var pluP3Pn = strPPP[ranStrPPPIndx][0] + perfectSubjectPl[2][0] + " erant";
+
+
+
+//First Declension English Translation PLUPERFECT PASSIVE Tense
+var pluP1SEng = "I had been " + strPPP[ranStrPPPIndx][1];
+var pluP2SEng = "You had been " + strPPP[ranStrPPPIndx][1];
+var pluP3SEngm = perfectSubjectSing[0][1] + "had been " + strPPP[ranStrPPPIndx][1];
+var pluP3SEngf = perfectSubjectSing[1][1] + "had been " + strPPP[ranStrPPPIndx][1];
+var pluP3SEngn = perfectSubjectSing[2][1] + "had been " + strPPP[ranStrPPPIndx][1];
+
+var pluP1PEng = "We had been " + strPPP[ranStrPPPIndx][1];
+var pluP2PEng = "Ya'll had been " + strPPP[ranStrPPPIndx][1];
+var pluP3PEng = "They had been " + strPPP[ranStrPPPIndx][1];
+var pluP3PEngm = perfectSubjectPl[0][1] + "had been " + strPPP[ranStrPPPIndx][1];
+var pluP3PEngf = perfectSubjectPl[1][1] + "had been " + strPPP[ranStrPPPIndx][1];
+var pluP3PEngn = perfectSubjectPl[2][1] + "had been " + strPPP[ranStrPPPIndx][1];
+
+
+var pluPVerb = [[pluP1S,pluP1SEng],[pluP2S,pluP2SEng], [pluP3Sm, pluP3SEngm], [pluP3Sf, pluP3SEngf],[pluP3Sn, pluP3SEngn],[pluP1P,pluP1PEng],[pluP2P,pluP2PEng], [pluP3Pm, pluP3PEngm],[pluP3Pf, pluP3PEngf],[pluP3Pn, pluP3PEngn]];
+
+
+
+
+
+//First Declension Latin FUTURE PERFECT  PASSIVE Tense
+var futPerP1S = strPPP[ranStrPPPIndx][0] + perfectSubjectSing[ranPerSubjIndex][0] + " ero";
+var futPerP2S = strPPP[ranStrPPPIndx][0] + perfectSubjectSing[ranPerSubjIndex][0] + " eris";
+var futPerP3Sm = strPPP[ranStrPPPIndx][0] + perfectSubjectSing[0][0] + " erit";
+var futPerP3Sf = strPPP[ranStrPPPIndx][0] + perfectSubjectSing[1][0] + " erit";
+var futPerP3Sn = strPPP[ranStrPPPIndx][0] + perfectSubjectSing[2][0] + " erit";
+
+
+var futPerP1P = strPPP[ranStrPPPIndx][0] + perfectSubjectPl[ranPerSubjIndex][0] + " erimus";
+var futPerP2P = strPPP[ranStrPPPIndx][0] + perfectSubjectPl[ranPerSubjIndex][0] + " eritis";
+var futPerP3Pm = strPPP[ranStrPPPIndx][0] + perfectSubjectPl[0][0] + " erunt";
+var futPerP3Pf = strPPP[ranStrPPPIndx][0] + perfectSubjectPl[1][0] + " erunt";
+var futPerP3Pn = strPPP[ranStrPPPIndx][0] + perfectSubjectPl[2][0] + " erunt";
+
+
+
+//First Declension English Translation FUTURE PERFECT Perfect PASSIVE Tense
+var futPerP1SEng = "I will have been " + strPPP[ranStrPPPIndx][1];
+var futPerP2SEng = "You will have been " + strPPP[ranStrPPPIndx][1];
+var futPerP3SEngm = perfectSubjectSing[0][1] + "will have been " + strPPP[ranStrPPPIndx][1];
+var futPerP3SEngf = perfectSubjectSing[1][1] + "will have been " + strPPP[ranStrPPPIndx][1];
+var futPerP3SEngn = perfectSubjectSing[2][1] + "will have been " + strPPP[ranStrPPPIndx][1];
+
+var futPerP1PEng = "We will have been " + strPPP[ranStrPPPIndx][1];
+var futPerP2PEng = "Ya'll will have been " + strPPP[ranStrPPPIndx][1];
+var futPerP3PEng = "They will have been " + strPPP[ranStrPPPIndx][1];
+var futPerP3PEngm = perfectSubjectPl[0][1] + "will have been " + strPPP[ranStrPPPIndx][1];
+var futPerP3PEngf = perfectSubjectPl[1][1] + "will have been " + strPPP[ranStrPPPIndx][1];
+var futPerP3PEngn = perfectSubjectPl[2][1] + "will have been " + strPPP[ranStrPPPIndx][1];
+
+
+var futPerPVerb = [[futPerP1S,futPerP1SEng],[futPerP2S,futPerP2SEng], [futPerP3Sm, futPerP3SEngm], [futPerP3Sf, futPerP3SEngf],[futPerP3Sn, futPerP3SEngn],[futPerP1P,futPerP1PEng],[futPerP2P,futPerP2PEng], [futPerP3Pm, futPerP3PEngm],[futPerP3Pf, futPerP3PEngf],[futPerP3Pn, futPerP3PEngn]];
+
+var mixUp2 = [[res,resTrans]];
+var ranVT2Indx = Math.floor(Math.random() * mixUp2.length);
+
+//var latin = mixUp2[ranVT2Indx][0];
+//var latinTrans = mixUp2[ranVT2Indx][1];
+
+
+//Testing ends
+
+
+function resetRanIndices() {
+  ranVT2Indx = Math.floor(Math.random() * mixUp2.length);
+  ranStrIndx = Math.floor(Math.random() * str.length);
+  pronounIndx = Math.floor(Math.random() * pronoun.length);
+  ranPeStrIndx = Math.floor(Math.random() * peStr.length);
+  ranStrPIndx = Math.floor(Math.random() * strP.length);
+  ranPeStrPIndx = Math.floor(Math.random() * peStrP.length);
+  ranVTIndx = Math.floor(Math.random() * mixUp.length);
+  ranStrIngIndx = Math.floor(Math.random() * strIng.length);
+  ranPeStrImpIndx = Math.floor(Math.random() * peStrImp.length);
+  ranPeStrImpPIndx = Math.floor(Math.random() * peStrImpP.length);
+  ranPeStrFutIndx = Math.floor(Math.random() * peStrFut.length);
+  ranPeStrFutPIndx = Math.floor(Math.random() * peStrFutP.length);
+  ranPeStrPerIndx = Math.floor(Math.random() * peStrPer.length);
+  ranStrP3Indx = Math.floor(Math.random() * strP3.length);
+  ranPeStrPluPerIndx = Math.floor(Math.random() * peStrPluPer.length);
+  ranPeStrFutPerIndx = Math.floor(Math.random() * peStrFutPer.length);
+  ranStrP2Indx = Math.floor(Math.random() * strP2.length);
+
+  ranStrPPPIndx = Math.floor(Math.random() * strPPP.length);
+  ranPerSubjIndex = Math.floor(Math.random() * 3);
+  ranPerPVerbIndex = Math.floor(Math.random() * perPVerb.length);
+
+
+
+}
+
+function hideBox1(){
+  document.getElementById("box1").style.display = "none" ;
+}
+
+function unHideBox1(){
+  document.getElementById("box1").style.display = "block" ;
+}
+
+function hideBox2(){
+  document.getElementById("box2").style.display = "none" ;
+}
+
+function unHideBox2(){
+  document.getElementById("box2").style.display = "block" ;
+}
+
+function hideDemo(){
+  document.getElementById("latin").style.display = "none" ;
+}
+
+function unHideDemo(){
+  document.getElementById("latin").style.display = "block" ;
+}
+function hideDemo2(){
+  document.getElementById("trans").style.display = "none" ;
+}
+
+function unHideDemo2(){
+  document.getElementById("trans").style.display = "block" ;
+}
+
+hideBox2();
+hideDemo();
+hideDemo2();
+
+function changeBoxColorsOne(){
+
+  document.getElementById("box2").style.background = "yellow" ;
+  document.getElementById("box2").style.borderColor = "black" ;
+  document.getElementById("latin").style.background= "black" ;
+  document.getElementById("latin").style.borderColor= "white" ;
+}
+
+function changeBoxColorsTwo(){
+
+  document.getElementById("box1").style.background= "yellow" ;
+  document.getElementById("box1").style.borderColor= "black" ;
+
+  document.getElementById("latin").style.background= "black" ;
+  document.getElementById("latin").style.borderColor= "red" ;
+
+  document.getElementById("trans").style.background= "white" ;
+  document.getElementById("trans").style.borderColor= "black" ;
+  document.getElementById("trans").style.color= "black" ;
+}
+
+
+ranVT2Indx = Math.floor(Math.random() * mixUp2.length);
+function test1() {
+
+resetRanIndices();
+  //var res = strIng[ranStrIngIndx][0].substring(0, strIng[ranStrIngIndx][0].length-1) + peStr[ranPeStrIndx][0];
+var latin =  mixUp2[ranVT2Indx][0];
+
+  hideBox1();
+  unHideBox2();
+  unHideDemo();
+  hideDemo2();
+  changeBoxColorsOne();
+
+
+document.getElementById("latin").innerHTML = latin;
+
+}
+
+
+
+function test2() {
+
+var latinTrans =  mixUp2[ranVT2Indx][1];
+//var  resTrans =  peStr[ranPeStrIndx][1] + " " + strIng[ranStrIngIndx][1];
+unHideBox1();
+hideBox2();
+unHideDemo2();
+changeBoxColorsTwo();
+
+
+  document.getElementById("trans").innerHTML = latinTrans;
+
+//resetRanIndices();
+}
+
+
+
+function myFunction() {
+  var res = strIng[ranStrIngIndx][0].substring(0, strIng[ranStrIngIndx][0].length-1) + peStr[ranPeStrIndx][0];
+
+
+  hideBox1();
+  unHideBox2();
+  unHideDemo();
+  hideDemo2();
+  changeBoxColorsOne();
+
+
+document.getElementById("latin").innerHTML = res ;
+
+}
+
+
+
+function myFunction2() {
+
+var resTrans =  peStr[ranPeStrIndx][1] + " " + strIng[ranStrIngIndx][1];
+
+unHideBox1();
+hideBox2();
+unHideDemo2();
+changeBoxColorsTwo();
+
+
+  document.getElementById("trans").innerHTML = resTrans;
+
+resetRanIndices();
+}
+
+
+function myFunctionP() {
+ var resP = strP[ranStrPIndx][0].substring(0, strP[ranStrPIndx][0].length-1) + peStrP[ranPeStrPIndx][0];
+  hideBox1();
+  unHideBox2();
+  unHideDemo();
+  hideDemo2();
+  changeBoxColorsOne();
+
+  document.getElementById("latin").innerHTML = resP ;
+
+
+}
+
+
+
+function myFunction2P() {
+//resP = strP[ranStrPIndx][0].substring(0, strP[ranStrPIndx][0].length-1) + peStrP[ranPeStrPIndx][0];
+ var resTransP =  peStrP[ranPeStrPIndx][1] + " " + strP[ranStrPIndx][1];
+//res = str[ranStrIndx][0].substring(0, str[ranStrIndx][0].length-1) + peStr[ranPeStrIndx][0];
+unHideBox1();
+hideBox2();
+unHideDemo2();
+changeBoxColorsTwo();
+
+//var resTransP =  peStrP[ranPeStrPIndx][1] + " " + strP[ranStrPIndx][1];
+
+//document.getElementById("demo").innerHTML = resTransP ;
+document.getElementById("trans").innerHTML = resTransP ;
+
+
+resetRanIndices();
+}
+
+
+function myFunctionImp() {
+
+ var resImp = strIng[ranStrIngIndx][0].substring(0, strIng[ranStrIngIndx][0].length-1) + peStrImp[ranPeStrImpIndx][0];
+  hideBox1();
+  unHideBox2();
+  unHideDemo();
+  hideDemo2();
+  changeBoxColorsOne();
+
+  document.getElementById("latin").innerHTML = resImp ;
+
+
+}
+
+
+
+function myFunction2Imp() {
+
+
+ var resImpTrans = peStrImp[ranPeStrImpIndx][1] + " " + strIng[ranStrIngIndx][1] ;
+ unHideBox1();
+hideBox2();
+unHideDemo2();
+changeBoxColorsTwo();
+
+
+document.getElementById("trans").innerHTML = resImpTrans ;
+
+
+resetRanIndices();
+}
+
+
+function myFunctionImpP() {
+
+  var resImpP = str[ranStrPIndx][0].substring(0, strP[ranStrPIndx][0].length-1) + peStrImpP[ranPeStrImpPIndx][0];
+
+  hideBox1();
+  unHideBox2();
+  unHideDemo();
+  hideDemo2();
+  changeBoxColorsOne();
+
+  document.getElementById("latin").innerHTML = resImpP;
+
+
+}
+
+
+
+function myFunction2ImpP() {
+
+
+ var resImpTransP =  peStrImpP[ranPeStrImpPIndx][1] + " " + strP[ranStrPIndx][1];
+ unHideBox1();
+hideBox2();
+unHideDemo2();
+changeBoxColorsTwo();
+
+
+document.getElementById("trans").innerHTML = resImpTransP;
+
+
+resetRanIndices();
+}
+
+
+function myFunctionFut() {
+
+
+
+ var resFut = str[ranStrIndx][0].substring(0, str[ranStrIndx][0].length-1) + peStrFut[ranPeStrFutIndx][0];
+
+
+  hideBox1();
+  unHideBox2();
+  unHideDemo();
+  hideDemo2();
+  changeBoxColorsOne();
+
+  document.getElementById("latin").innerHTML = resFut ;
+
+
+}
+
+
+
+function myFunction2Fut() {
+
+  var resFutTrans =  peStrFut[ranPeStrFutIndx][1] + " " + str[ranStrIndx][1];
+
+ unHideBox1();
+hideBox2();
+unHideDemo2();
+changeBoxColorsTwo();
+
+
+document.getElementById("trans").innerHTML = resFutTrans ;
+
+
+resetRanIndices();
+}
+
+
+function myFunctionFutP() {
+
+  var resFutP = str[ranStrPIndx][0].substring(0, strP[ranStrPIndx][0].length-1) + peStrFutP[ranPeStrFutPIndx][0];
+
+  hideBox1();
+  unHideBox2();
+  unHideDemo();
+  hideDemo2();
+  changeBoxColorsOne();
+
+  document.getElementById("latin").innerHTML = resFutP;
+
+
+}
+
+
+
+function myFunction2FutP() {
+
+var resFutTransP =  peStrFutP[ranPeStrFutPIndx][1] + " " + strP[ranStrPIndx][1];
+
+ unHideBox1();
+hideBox2();
+unHideDemo2();
+changeBoxColorsTwo();
+
+
+document.getElementById("trans").innerHTML = resFutTransP;
+
+
+resetRanIndices();
+}
+
+
+function myFunctionPer() {
+  var resPer = resPer = strP2[ranStrP2Indx][0] + peStrPer[ranPeStrPerIndx][0];
+
+
+  hideBox1();
+  unHideBox2();
+  unHideDemo();
+  hideDemo2();
+  changeBoxColorsOne();
+
+
+document.getElementById("latin").innerHTML = resPer;
+
+}
+
+
+
+function myFunction2Per() {
+
+var resPerTrans =  peStrPer[ranPeStrPerIndx][1] + " " + strP2[ranStrP2Indx][1];
+unHideBox1();
+hideBox2();
+unHideDemo2();
+changeBoxColorsTwo();
+
+
+  document.getElementById("trans").innerHTML = resPerTrans;
+
+
+
+
+resetRanIndices();
+}
+
+function myFunctionPluPer() {
+  var resPluPer = strP3[ranStrP3Indx][0] + peStrPluPer[ranPeStrPluPerIndx][0];
+
+  hideBox1();
+  unHideBox2();
+  unHideDemo();
+  hideDemo2();
+  changeBoxColorsOne();
+
+
+document.getElementById("latin").innerHTML = resPluPer;
+
+}
+
+
+
+function myFunction2PluPer() {
+
+  var resPluPerTrans =  peStrPluPer[ranPeStrPluPerIndx][1] + " " + strP3[ranStrP3Indx][1];
+
+unHideBox1();
+hideBox2();
+unHideDemo2();
+changeBoxColorsTwo();
+
+
+  document.getElementById("trans").innerHTML = resPluPerTrans;
+
+
+
+
+resetRanIndices();
+}
+
+function myFunctionFutPer() {
+
+  var resFutPer = strP3[ranStrP3Indx][0] + peStrFutPer[ranPeStrFutPerIndx][0];
+
+  hideBox1();
+  unHideBox2();
+  unHideDemo();
+  hideDemo2();
+  changeBoxColorsOne();
+
+
+document.getElementById("latin").innerHTML = resFutPer;
+
+}
+
+
+
+function myFunction2FutPer() {
+
+
+var resFutPerTrans =  peStrFutPer[ranPeStrFutPerIndx][1] + " " + strP3[ranStrP3Indx][1];
+unHideBox1();
+hideBox2();
+unHideDemo2();
+changeBoxColorsTwo();
+
+
+  document.getElementById("trans").innerHTML = resFutPerTrans;
+
+
+
+
+resetRanIndices();
+}
+
+
+function myFunctionPerP() {
+
+var pPVerb = perPVerb[ranPerPVerbIndex][0];
+
+
+  hideBox1();
+  unHideBox2();
+  unHideDemo();
+  hideDemo2();
+  changeBoxColorsOne();
+
+
+document.getElementById("latin").innerHTML = pPVerb;
+
+}
+
+
+
+function myFunction2PerP() {
+
+  var pPVerbEng = perPVerb[ranPerPVerbIndex][1];
+unHideBox1();
+hideBox2();
+unHideDemo2();
+changeBoxColorsTwo();
+
+
+  document.getElementById("trans").innerHTML = pPVerbEng;
+
+
+
+
+resetRanIndices();
+}
+
+function myFunctionPluPerP() {
+
+var pluPVerbP = pluPVerb[ranPerPVerbIndex][0];
+
+
+  hideBox1();
+  unHideBox2();
+  unHideDemo();
+  hideDemo2();
+  changeBoxColorsOne();
+
+
+document.getElementById("latin").innerHTML = pluPVerbP;
+
+}
+
+
+
+function myFunction2PluPerP() {
+
+  var pluPVerbEng = pluPVerb[ranPerPVerbIndex][1];
+unHideBox1();
+hideBox2();
+unHideDemo2();
+changeBoxColorsTwo();
+
+
+  document.getElementById("trans").innerHTML = pluPVerbEng;
+
+
+
+
+resetRanIndices();
+}
+
+function myFunctionFutPerP() {
+
+var futPerPVerbP = futPerPVerb[ranPerPVerbIndex][0];
+
+
+  hideBox1();
+  unHideBox2();
+  unHideDemo();
+  hideDemo2();
+  changeBoxColorsOne();
+
+
+document.getElementById("latin").innerHTML = futPerPVerbP;
+
+}
+
+
+
+function myFunction2FutPerP() {
+
+  var futPerPVerbEng = futPerPVerb[ranPerPVerbIndex][1];
+unHideBox1();
+hideBox2();
+unHideDemo2();
+changeBoxColorsTwo();
+
+
+  document.getElementById("trans").innerHTML = futPerPVerbEng;
+
+
+
+
+resetRanIndices();
+}
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
