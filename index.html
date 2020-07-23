@@ -1,17 +1,74 @@
-<!DOCTYPE html>
+<!DOCTYPE<!DOCTYPE html><!DOCTYPE html>
 <html>
 
 <head>
-
+<meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+
+#backBox {
+  float:left;
+
+  margin-top: 50px;
+
+  text-align: center;
+
+  border: 4px solid white;
+  border-radius: 25px;
+
+  padding: 5px;
+  background-color: blue;
+  color:white;
+}
+
+.label{
+
+  margin:auto;
+
+  text-align:center;
+
+  font-size: 150%;
+  width: 25%;
+  height:40px;
+}
+
+  #labelBox {
+    float:right;
+    text-align: center;
+
+    border: 2px solid black;
+    border-radius: 25px;
+
+    padding: 5px;
+    background-color: white;
+    color:black;
+}
+
+#myProgress {
+  width: 100%;
+  background-color: white;
+  border: 4px solid black;
+  text-align: center;
+  border-radius: 25px;
+  color: black;
+  display: none;
+  margin-top: 10px;
+}
+
+#myBar {
+  width: 0%;
+  height: 30px;
+  background-color: yellow;
+  border: 4px solid black;
+  border-radius: 25px;
+}
 
 
 
 .test{
   margin:auto;
-
+margin-top: 20px;
   text-align:center;
 
 
@@ -19,12 +76,14 @@
   width: 25%;
   height:100px;
 
-
 }
+
+
 .center {
+  float:clear;
   margin:auto;
   width:50%;
-  margin-top: 40px;
+  margin-top: 30px;
 
   text-align: center;
 
@@ -57,7 +116,7 @@
   margin:auto;
   width:10%;
   margin-top: 20px;
-  margin-bottom: 20px
+  margin-bottom: 10px
 
 
   text-align: center;
@@ -71,9 +130,10 @@
   color: black;
 
   padding: 6px;
-  float:clear;
+
 
 }
+
 
 
 
@@ -129,9 +189,15 @@
 
 
 <body class = "body">
+<div >
+  <div><button  id = "backBox"  onclick="restartGame()"><--BACK!</button></div>
+<h1 class="center">Quick Tricklation - Verbs!</h1>
+</div>
 
+<div id="myProgress">
+  <div id="myBar">Progress Bar</div>
+</div>
 
-<h1 class="center">Quick Tricklation</h1>
 
 
 <p class="test">
@@ -146,6 +212,42 @@
 
 
 <script>
+
+/*
+Checklist for adding Progress Bar:
+1. Change head, style and body.
+2. Insert the movLength in the function resetSentence(); (through 149 and then change title at 194)
+3. Insert function restartGame() and the following lines of code through unHideProgressBar(); (355-403)
+4. Insert in function startGame():
+     unHideBackBox();
+     document.getElementById("box1").innerHTML = "Next!";
+     document.getElementById("box1").style.color = "black";
+5. Insert "move();" in the function giveAnswerOne();
+6. Change the count arry in the function giveAnswerOne() at if (count == 20)
+*/
+
+//This sets the width for the progress bar called "myBar"
+var width = 0;
+
+//This sets the length of each movement of the Progess Bar on a button click
+var movLength = 0;
+
+//This increases the Progress Bar on each button click
+function move() {
+//This displays the Progress Bar total length of 100%
+document.getElementById("myProgress").style.display = "block" ;
+
+//The displays the progress made on each button click
+var bar = document.getElementById("myBar");
+
+      if (width >= 100) {
+        bar.style.width = 0;
+      } else {
+        width += movLength;
+        bar.style.width = width + "%";
+
+      }
+    }
 
 var mixUp = [[myFunction,myFunction2],[myFunctionP,myFunction2P],[myFunctionImp,myFunction2Imp],[myFunctionImpP,myFunction2ImpP],[myFunctionFut,myFunction2Fut],[myFunctionFutP,myFunction2FutP],[myFunctionPer,myFunction2Per],[myFunctionPerP,myFunction2PerP],[myFunctionPluPer,myFunction2PluPer],[myFunctionPluPerP,myFunction2PluPerP],[myFunctionFutPer,myFunction2FutPer],[myFunctionFutPerP,myFunction2FutPerP]];
 var ranVTIndx = Math.floor(Math.random() * mixUp.length);
@@ -374,8 +476,72 @@ function resetRanIndices() {
   ranPerPVerbIndex = Math.floor(Math.random() * perPVerb.length);
 
 
+  movLength = 100/20;
+  move();
+  document.getElementById("box1").innerHTML = "Next!";
+  document.getElementById("box1").style.color = "black";
+  if (count == 20){
+      document.getElementById("latin").innerHTML = "Finis!";
+      document.getElementById("trans").innerHTML = "Let's go again!"
+      document.getElementById("box1").innerHTML = "Start";
+      document.getElementById("box1").style.background = "blue";
+      document.getElementById("box1").style.color = "white";
+      document.getElementById("myBar").style.width =0;
+      count = 0;
+      width = 0;
+      //resetSentence();
+  }
+  count++;
+  }
 
-}
+  // This function restarts the game at the beginning on the click of the BackBox button.
+  function restartGame(){
+
+    //This sets the colors of box 1 for the first game
+      document.getElementById("box1").innerHTML = "Start!"
+      document.getElementById("box1").style.background = "yellow";
+      document.getElementById("box1").style.color = "black";
+      document.getElementById("myBar").style.width = "0";
+      width = 0;
+
+
+    hideDemo();
+    hideDemo2();
+    hideBox2();
+    unHideBox1();
+    hideBackBox();
+
+   //This activitates box 1 to start the Latin to English game
+    document.getElementById("box1").onclick = function(){mixUp[ranVTIndx][0]()};
+    document.getElementById("box2").onclick = function(){mixUp[ranVTIndx][1]()};
+    unHideBackBox();
+  }
+
+
+  var count = 0;
+
+
+  //resetSentence();
+  unHideProgressBar();
+
+
+  function hideBackBox(){
+    document.getElementById("backBox").style.display = "none" ;
+  }
+
+  function unHideBackBox(){
+    document.getElementById("backBox").style.display = "block" ;
+  }
+
+  function hideProgressBar(){
+    document.getElementById("myProgress").style.display = "none" ;
+  }
+
+  function unHideProgressBar(){
+    document.getElementById("myProgress").style.display = "block" ;
+  }
+
+
 
 function hideBox1(){
   document.getElementById("box1").style.display = "none" ;
